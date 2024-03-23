@@ -66,6 +66,10 @@ Create the following routes as efficiently as possible, using validation where a
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
    - What is the cost-benefit between using `PUT` and `PATCH`?
 
+Answer: update employee department used patch strategy as it is we only want to update partial information of the employee; for patient, used put strategy as it is request to update the whole patient
+
+Put is idempotent, and it is simpler to implement 
+Patch is not idempotent but can be more memory efficient
 <br>  
 
 ## FAQs
