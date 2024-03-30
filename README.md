@@ -62,9 +62,14 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+     - No, I used different endpoints.
    - Why did you choose the selected strategy?
+     - because when updating the patient's information all the properties could be updated, but when updating the doctor's (employee) department I wanted to just update that property and I needed different endpoints to update different properties of the resource. 
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+     - I believe the advantage is protecting the data from undesired changes and controlling which properties are updated with each endpoint. The disadvantages could be longer code. 
    - What is the cost-benefit between using `PUT` and `PATCH`?
+     - `PUT`is idempotent and this can be a benefit. It is also simpler to implement and understand because it always performs a full update. The costs are that using `PUT` the client is needed to send the full resource, even when just a part is being updated. `PATCH` can be more efficient than `PUT` when only a small part of the resource needs to be updated, but it can be more complex to implement and understand because it requires the server to apply the changes to the existing resource rather than replacing it entirely.
+      
 
 <br>  
 
