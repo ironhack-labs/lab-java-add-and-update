@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/javalabweek10_db
+    username: root
+    password: 170984St
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true

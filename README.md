@@ -58,16 +58,39 @@ Create the following routes as efficiently as possible, using validation where a
 2. **Add new doctor**: Create a route to add a new doctor.
 3. **Change doctor status**: Create a route to change a doctor's status.
 4. **Update doctor's department**: Create a route to update a doctor's department.
-5. **Update patient information**: Create a route to update patient information (the user should be able to update any patient information through this route).
+5. **Update patient information**: Create a route to update patient information (the user should be able to update any patient information through this route).</n>
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
-
+<br><br>
    - Did you use the same type of route to update patient information as to update an employee's department?
+     <span style="color: green"> <br> Yes, I used the same type of route (a PUT request) for both updating a patient's information and updating an employee's department. Both routes take an ID as a path variable and use a DTO to encapsulate the data that needs to be updated.</span>
+     <br><br>
+
    - Why did you choose the selected strategy?
+     <span style="color: green"> <br>I Used the PUT method as it was mainly input so it seems more logical</span>
+     <br><br>
+
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+<span style="color: green"> 
+     - <span style="color: orange"> Advantages:</span>
+       <span style="color: green"> The PUT method is straightforward and easy to use & Understand</span>
+     - <span style="color: orange"> Disadvantages:</span>
+       <span style="color: green"> The PUT method doesn't natively support partial updates. So I would need to update it all Manually</span>
+       <br><br>
+
    - What is the cost-benefit between using `PUT` and `PATCH`?
+      - `PUT`   
+        - <span style="color: orange">Cost:</span>
+          <span style="color: green"><br>Requires the full resource representation, even for small changes. </span>
+        - <span style="color: orange">Benefit:</span>
+          <span style="color: green"><br>Clear and simple to use when the entire resource is intended to be replaced. It adheres to RESTful principles and makes the API's behavior predictable.</span>
+          <br><br>
+       - `PATCH`
+         - <span style="color: orange">Cost:</span>
+           <span style="color: green"><br>More complex to implement because it needs to support partial updates. There has to be logic to apply the changes correctly.</span>
+         - <span style="color: orange">Benefit:</span>
+           <span style="color: green"><br>More efficient for partial updates as it doesn't require the full resource. It allows clients to update specific fields without sending the entire resource representation.</span>
 
-<br>  
-
+<br><br>
 ## FAQs
 
 <br>
