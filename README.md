@@ -62,9 +62,13 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+   - I used the same type for both. I used Patch.
    - Why did you choose the selected strategy?
+   - It is more efficient and uses less resources
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+   - The advantage is using less resources,the disadvantage is the code is more complicated.
    - What is the cost-benefit between using `PUT` and `PATCH`?
+   - It uses less resources in the system.
 
 <br>  
 
