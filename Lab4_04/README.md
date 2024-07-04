@@ -62,9 +62,32 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+     No, I did not use the same type of route for both updates. I used a PUT request for updating patient information and a PATCH request for updating an employee's department.
    - Why did you choose the selected strategy?
+     I chose the PUT request for updating patient information because it is idempotent, meaning that making multiple identical requests has the same effect as making a single request. PUT requests replace the entire resource suitable for updating patient information.
+     I chose the PATCH request for updating an employee's department because it is not idempotent, meaning that making multiple identical requests may have different effects. PATCH requests are used to update specific attributes of a resource, which is suitable for updating an employee's department.
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+   - Advantages of PUT:
+     Idempotent: Making multiple identical requests has the same effect as making a single request.
+     Replaces the entire resource: PUT requests replace the resource in full suitable for updating patient information.
+   - Disadvantages of PUT:
+   - Not idempotent: Making multiple identical requests may have different effects.
+   - Advantages of PATCH:
+     Not idempotent: Making multiple identical requests may have different effects.
+     Updates specific attributes: PATCH requests renew specific resource attributes suitable for updating an employee's department.
+   - Disadvantages of PATCH:
+     Not idempotent: Making multiple identical requests may have different effects.
    - What is the cost-benefit between using `PUT` and `PATCH`?
+   - Cost-benefit of PUT:
+     Idempotent: Making multiple identical requests has the same effect as making a single request.
+     Replaces the entire resource: PUT requests replace the resource in full suitable for updating patient information.
+     Cost: PUT requests require sending the entire resource data, which may result in higher bandwidth usage.
+     Benefit: PUT requests are suitable for updating patient information, as they replace the entire resource.
+   - Cost-benefit of PATCH:
+     Not idempotent: Making multiple identical requests may have different effects.
+     Updates specific attributes: PATCH requests renew specific resource attributes suitable for updating an employee's department.
+     Cost: PATCH requests require sending only the updated attribute data, which may result in lower bandwidth usage.
+     Benefit: PATCH requests are suitable for updating an employee's department, as they update specific attributes.
 
 <br>  
 
