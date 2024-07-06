@@ -62,9 +62,24 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+   Answer : No, I did not use the same type of route. 
    - Why did you choose the selected strategy?
+   Answer : 
+      A - *PUT for Employee Department:* Chosen because updating an employee's department typically involves updating the entire department field. This method ensures clarity and completeness in updating the resource.
+   
+     B - *PATCH for Patient Information:* Selected to allow flexibility in updating patient details. Often, not all fields need updating simultaneously. PATCH enables efficient updates by focusing on specific fields, minimizing data transfer and potential overwrites.
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+   Answer: 
+     - *PUT (Employee Department Update):*
+     - Disadvantages: May result in overwriting existing data if not handled carefully, potentially transferring unnecessary data.
+
+   - *PATCH (Patient Information Update):*
+     - Disadvantages: Requires careful implementation to handle partial updates correctly. Increased complexity in ensuring data consistency.
    - What is the cost-benefit between using `PUT` and `PATCH`?
+   Answer: 
+   - *PUT:* Best suited for scenarios where complete resource replacement is required, ensuring atomic updates and simplicity in implementation. However, it may lead to unnecessary data transfer and overwrite risks.
+
+   - *PATCH:* Ideal for scenarios where partial updates are frequent or desired, optimizing data transfer and reducing the risk of unintentional overwrites. Offers flexibility but requires careful implementation to maintain data integrity.
 
 <br>  
 
