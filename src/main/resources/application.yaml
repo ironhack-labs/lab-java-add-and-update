@@ -1,0 +1,12 @@
+spring:
+  #  main:
+  #    log-startup-info: false
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/LabWeek10
+    username: user1
+    password: Plamen2012
+  jpa:
+    hibernate:
+      ddl-auto: create
+#    show-sql: true
