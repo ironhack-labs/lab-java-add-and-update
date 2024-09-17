@@ -550,3 +550,37 @@ public class Employee {
   ```
 
 </details>
+
+¿Utilizó el mismo tipo de ruta para actualizar la información del paciente que para actualizar el departamento de un empleado?
+No, utilicé diferentes tipos de rutas. Para actualizar la información del paciente, usé PUT, mientras que para actualizar el departamento de un médico, usé PATCH.
+¿Por qué eligió la estrategia seleccionada?
+Elegí esta estrategia porque:
+
+Para actualizar la información del paciente, se asume que se actualizará toda la información del paciente, lo que hace que PUT sea más apropiado.
+Para actualizar el departamento de un médico, solo se está actualizando un campo específico, por lo que PATCH es más adecuado.
+
+
+¿Cuáles son las ventajas y desventajas de las estrategias que elegiste para crear estas rutas?
+Ventajas:
+
+Mayor precisión semántica: PATCH para actualizaciones parciales, PUT para actualizaciones completas.
+Mejor rendimiento potencial: PATCH envía menos datos cuando solo se actualiza un campo.
+
+Desventajas:
+
+Mayor complejidad: Usar diferentes métodos puede complicar la implementación y el mantenimiento.
+Posible inconsistencia: Si no se aplica de manera uniforme, puede llevar a confusión.
+
+
+¿Cuál es el costo-beneficio entre usar PUT y PATCH?
+PUT:
+
+Ventajas: Simple de implementar, idempotente, clara intención de reemplazar todo el recurso.
+Desventajas: Puede ser ineficiente para actualizaciones parciales, requiere enviar todos los campos.
+
+PATCH:
+
+Ventajas: Eficiente para actualizaciones parciales, menor tráfico de red.
+Desventajas: Más complejo de implementar correctamente, potencialmente menos idempotente.
+
+El costo-beneficio depende del caso de uso específico. Para actualizaciones frecuentes de campos individuales, PATCH puede ofrecer mejor rendimiento. Para actualizaciones completas o donde la simplicidad es prioritaria, PUT puede ser preferible.
