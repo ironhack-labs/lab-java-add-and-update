@@ -1,0 +1,23 @@
+## Questions
+
+## Did you use the same type of route?
+
+Yes, both updating patient information and employee department information used the PUT method, but in separate routes. Although both cases involve updates, each has its own context and specific data that are handled independently.
+
+## Why did you choose this strategy?
+
+I chose PUT because it is ideal for situations where you want to completely replace a resource or a key field. It is easy to implement and ensures that the resource is updated consistently and completely, simplifying update operations.
+
+## Advantages and disadvantages of the strategy:
+
+### Advantages:
+- Using PUT provides clarity and simplicity in defining specific routes for updating complete resources, making the code easier to maintain and follow.
+
+### Disadvantages:
+- It can be inefficient if only a small fragment of the data needs to be updated, as PUT requires sending all the information of the resource.
+
+## Cost-benefit analysis between PUT and PATCH:
+
+PUT: It is beneficial when full resources are updated, but its cost is the inefficiency in partial updates.
+
+PATCH: It offers better efficiency for modifying only specific fields, but involves greater effort in terms of validation and handling of partial data.
