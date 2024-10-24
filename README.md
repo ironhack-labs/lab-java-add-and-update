@@ -62,9 +62,17 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+   - Yes, I used the same HTTP method (PUT) for both updating patient information and updating an employee's department.
    - Why did you choose the selected strategy?
+   - I chose the PUT method for both update operations because it is semantically appropriate for complete resource replacement.
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+   - Advantages: Constitency, Clarity, Simplicity and disadavntages:Potential Overhead
    - What is the cost-benefit between using `PUT` and `PATCH`?
+   - Cost of Using PUT: Data Transmission 
+Benefit of Using PUT: Simplicity in Implementation
+Cost of Using PATCH: Complexity
+Client Responsibility: The client must specify the exact fields to be updated, which could lead to confusion if not documented properly.
+Benefit of Using PATCH: Efficiency
 
 <br>  
 
