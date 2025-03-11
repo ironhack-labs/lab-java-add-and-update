@@ -1,6 +1,22 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
+
+## Short Answer about strategy chosen and HTTP methods:
+
+Short Answer about strategy chosen and HTTP methods.
+
+I used different routes to update the patient information and to update the employee's department. For the patient, I used a PUT route so thay the user can update any field, while for the employee's department I used a PATCH route so only the department would be affected.
+
+I chose this strategy both for security issues, allowing the user to modify only what is meant to be modified, and for comfort, instead of making multiple PUT routes for the patient information updates.
+
+The disadvantage is that more configuration is necesarry for creating the PATCH routes. The advantage is that the application works in a more granular way, allowing for precise field updates.
+
+Both PUT and PATCH use system resources and have their own routes and setup. PUT routes updates the entire object, which might lead to overhead costs if only a field has been updated, while PATCH requests can be more fine-tuned to update only selected fields, especially if we use the @DynamicUpdate Annotation in the model.
+
+
+
 # LAB Java | Add and Update
+
 
 ## Introduction
 
@@ -550,3 +566,16 @@ public class Employee {
   ```
 
 </details>
+
+
+## Short Answer about strategy chosen and HTTP methods:
+
+Short Answer about strategy chosen and HTTP methods.
+
+I used different routes to update the patient information and to update the employee's department. For the patient, I used a PUT route so thay the user can update any field, while for the employee's department I used a PATCH route so only the department would be affected.
+
+I chose this strategy both for security issues, allowing the user to modify only what is meant to be modified, and for comfort, instead of making multiple PUT routes for the patient information updates.
+
+The disadvantage is that more configuration is necesarry for creating the PATCH routes. The advantage is that the application works in a more granular way, allowing for precise field updates.
+
+Both PUT and PATCH use system resources and have their own routes and setup. PUT routes updates the entire object, which might lead to overhead costs if only a field has been updated, while PATCH requests can be more fine-tuned to update only selected fields, especially if we use the @DynamicUpdate Annotation in the model.
