@@ -1,3 +1,12 @@
+## Task06: Cuestions
+
+- No. It's not the same because one of this you use @RequestBody and the another, yu use @RequestVariable
+- I use the @PutMapping because it is easier than @PatchMapping
+- You can prove @RequestVariable in a online portal but @RequestBody you need a body.
+- Put is easier for its implementation but rewrite the variables that they don't change.
+
+
+
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
 # LAB Java | Add and Update
