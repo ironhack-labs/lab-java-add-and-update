@@ -55,17 +55,33 @@ _Note that `admitted_by` is a foreign key to the employee table._
 Create the following routes as efficiently as possible, using validation where appropriate:
 
 1. **Add new patient**: Create a route to add a new patient.
+![](createNewPatient.png)
 2. **Add new doctor**: Create a route to add a new doctor.
+![](createNewEmployee.png)
 3. **Change doctor status**: Create a route to change a doctor's status.
+![](updateEmployeeStatus.png)
 4. **Update doctor's department**: Create a route to update a doctor's department.
+![](updateEmployeeDepartment.png)
 5. **Update patient information**: Create a route to update patient information (the user should be able to update any patient information through this route).
+![](updatePatient.png)
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
+
    - Did you use the same type of route to update patient information as to update an employee's department?
+
+No, he empleado el put para el update completo del paciente y el patch para hacer el update parcial de employee.
+
    - Why did you choose the selected strategy?
+
+   Porque se usa como indico en la pregunta anterior.
+
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+
+   Que el put hace el update completo y patch el parcial.
+
    - What is the cost-benefit between using `PUT` and `PATCH`?
 
+   Que el put es mas sencillo porque actualizamos todo mientras que con patch es selectivo.
 <br>  
 
 ## FAQs
