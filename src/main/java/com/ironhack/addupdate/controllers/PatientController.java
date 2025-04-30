@@ -1,0 +1,131 @@
+package com.ironhack.addupdate.controllers;
+
+
+import com.ironhack.addupdate.dtos.PatientPatchDTO;
+import com.ironhack.addupdate.models.Employee;
+import com.ironhack.addupdate.models.Patient;
+import com.ironhack.addupdate.models.Status;
+import com.ironhack.addupdate.repositories.EmployeeRepository;
+import com.ironhack.addupdate.repositories.PatientRepository;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+public class PatientController {
+
+    @Autowired
+    private PatientRepository patientRepository;
+    @Autowired
+    private EmployeeRepository employeeRepository;
+//--------------------------------------------------------------------------------
+@GetMapping("api/patient")
+@ResponseStatus(HttpStatus.OK)
+
+public List<Patient> findAll() {
+    return patientRepository.findAll();
+}
+
+    @GetMapping("api/patient/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Patient findById(@PathVariable("id") int id) {
+        Optional<Patient> optional = patientRepository.findById(id);
+        return optional.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Patient not found"));
+    }
+
+
+    //Filtrar por fechas
+    //patients?startDate=1970-01-01&endDate=1990-12-31.
+    // Convertir las fechas a tipo LocalDate para poder comparar.
+    // Usar @RequestParam para recibir los rangos como query parameters
+    //TODO metodo en repo para buscar en ese rango de fechas
+    @GetMapping("api/patient/by-range-date")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByDateOfBirthRange(
+            @RequestParam("startDate") String startDate,
+            @RequestParam("endDate") String endDate) {
+
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate start = LocalDate.parse(startDate, formatter);
+            LocalDate end = LocalDate.parse(endDate, formatter);
+
+            if (start.isAfter(end)) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "startDate must be before endDate");
+            }
+        } catch (DateTimeParseException e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid date format. Use YYYY-MM-DD.");
+        }
+        return patientRepository.findByDateOfBirthBetween(startDate, endDate);
+
+    }
+
+    //8. Obtención de los pacientes  por departamento del médico. ej: Todos los pacientes de cardiologia
+    // A través del id de empleado(medico) muestra los pacientes que han sido admitidos por ese medico
+
+    @GetMapping("api/patient/admit-employee/{employeeId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByDepartment(@PathVariable("employeeId") int employeeId) {
+        Employee employee= employeeRepository.findByEmployeeId(employeeId);
+        if (employee == null) {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found");}
+
+        return patientRepository.getPatientByAdmittedBy_(employee);
+    }
+
+    /* 9.
+        Obtener todos los pacientes con un médico(Employee) cuyo estado es  OFF
+        Obtendremos resultados cuando el estado del id del Empleado introducido
+        sea OFF
+     */
+    @GetMapping("api/patient/employee-off/{idEmployeeStatusOff}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByStatusOff(@PathVariable("idEmployeeStatusOff") int idEmployeeOff) {
+        Employee employee = employeeRepository.findByEmployeeId(idEmployeeOff);
+        if (employee == null) {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found");}
+        if (employee.getStatus() != Status.OFF){
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Employee status is not OFF");
+        }
+        return patientRepository.getPatientByAdmittedBy_(employee);
+
+
+    }
+// -------------------------------------------------------------------------------
+
+
+
+    @PostMapping("api/patient/add-new-patient")
+    @ResponseStatus(HttpStatus.CREATED) //201 Creado
+    public Patient addPatient(@RequestBody @Valid Patient patient) {
+
+        return patientRepository.save(patient);
+    }
+
+    @PatchMapping("api/patient/update/{id}")
+    @ResponseStatus(HttpStatus.CREATED) //201 Creado
+    public Patient updatePatient(@PathVariable int id, @RequestBody PatientPatchDTO patientPatchDTO) {
+
+        Patient exisitingPatient = patientRepository.findById(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        if (patientPatchDTO.getName() != null) {
+            exisitingPatient.setName(patientPatchDTO.getName());
+        }
+
+        if (patientPatchDTO.getDateOfBirth() != null) {
+            exisitingPatient.setDateOfBirth(patientPatchDTO.getDateOfBirth());
+        }
+
+        if (patientPatchDTO.getAdmittedBy() != null) {
+            exisitingPatient.setAdmittedBy(patientPatchDTO.getAdmittedBy());
+        }
+    return patientRepository.save(exisitingPatient);
+    }
+}
