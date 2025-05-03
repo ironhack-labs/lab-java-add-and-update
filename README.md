@@ -62,11 +62,18 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+     <br>Sí, he usado el mismo tipo de ruta para ambos casos que en mi caso ha sido PATCH.<br>
    - Why did you choose the selected strategy?
+     <br>En el caso de cambiar el departamento de un empleado, si solo necesitamos cambiar un campo PATCH es lo más adecuado, sino tendríamos que volver a introducir de nuevo todos los campos de información del empleado aunque no vayan a cambiarse.
+       En el caso de la información del paciente no está tan claro si la elección más adecuada sería PATCH o PUT pero he elegido PATCH porque me parece que aunque es posible no será tan común tener que cambiar todos los campos a la vez.
+     <br>
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+     <br>VENTAJAS: flexibilidad, eficiencia, menos riesgo de errores por sobreescritura, experiencia de usuario.
+     DESVENTAJAS: integridad de datos, riesgo de campos incompletos , validaciones más complicadas, posibilidad de datos desactualizados.<br>
+    
    - What is the cost-benefit between using `PUT` and `PATCH`?
-
-<br>  
+     <br>Menor consistencia y mayor complejidad en la lógica del método.<br>
+   <br>  
 
 ## FAQs
 
