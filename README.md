@@ -550,3 +550,31 @@ public class Employee {
   ```
 
 </details>
+
+Update Strategies: Patients vs Employees
+Did you use the same type of route to update patient information as to update an employee's department?
+No. I used a PUT route for updating patient information and a PATCH route for updating an employee’s status.
+
+Why did you choose the selected strategy?
+PUT is suitable for replacing the entire patient record, which fits when updating all patient fields. PATCH is more appropriate for partial updates, like changing only a doctor’s status.
+
+What are the advantages and disadvantages of the strategies you chose for creating these routes?
+
+PUT:
+
+✅ Advantage: Clear intent to update the entire resource.
+
+❌ Disadvantage: May overwrite fields unintentionally if not carefully handled.
+
+PATCH:
+
+✅ Advantage: Efficient for partial updates.
+
+❌ Disadvantage: Slightly more complex to implement correctly with validations.
+
+What is the cost-benefit between using PUT and PATCH?
+
+PUT has a higher cost when only a few fields change, but it ensures complete replacement.
+
+PATCH is lighter and more efficient for single-field changes, but can introduce inconsistency if not well-controlled.
+Choosing between them depends on how much of the resource you’re changing.
