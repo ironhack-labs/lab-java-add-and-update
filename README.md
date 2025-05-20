@@ -61,10 +61,18 @@ Create the following routes as efficiently as possible, using validation where a
 5. **Update patient information**: Create a route to update patient information (the user should be able to update any patient information through this route).
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
-   - Did you use the same type of route to update patient information as to update an employee's department?
-   - Why did you choose the selected strategy?
-   - What are the advantages and disadvantages of the strategies you chose for creating these routes?
-   - What is the cost-benefit between using `PUT` and `PATCH`?
+- Did you use the same type of route to update patient information as to update an employee's department?
+  - Yes, I used a PUT route for both updates.
+- Why did you choose the selected strategy?
+  - I chose PUT because it is standard for resource updates and keeps the API consistent.
+- What are the advantages and disadvantages of the strategies you chose for creating these routes?
+  - **Advantages:**
+  - Consistent API design
+  - Easy to understand and test
+  - **Disadvantages:**
+  - PUT expects the full resource, which can be redundant for small changes
+- What is the cost-benefit between using `PUT` and `PATCH`?
+  - PUT is simple and replaces the whole resource, but may send unnecessary data. PATCH is more efficient for partial updates, but requires more complex logic.
 
 <br>  
 

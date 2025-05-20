@@ -1,0 +1,188 @@
+ {
+        "hospId": 1,
+        "hospName": "Hospital Central",
+        "region": "Madrid",
+        "city": "Madrid"
+    },
+    {
+        "hospId": 2,
+        "hospName": "Hospital Norte",
+        "region": "Cataluña",
+        "city": "Barcelona"
+    },
+    {
+        "hospId": 3,
+        "hospName": "Hospital del Mar",
+        "region": "Cataluña",
+        "city": "Barcelona"
+    },
+    {
+        "hospId": 4,
+        "hospName": "Hospital Virgen del Rocío",
+        "region": "Andalucía",
+        "city": "Sevilla"
+    }
+
+
+Employee
+
+{
+        "employeeId": 156545,
+        "department": "orthopaedic",
+        "name": "Paolo Rodriguez",
+        "status": "ON_CALL",
+        "hospital": {
+            "hospId": 2,
+            "hospName": "Hospital Norte",
+            "region": "Cataluña",
+            "city": "Barcelona"
+        }
+    },
+    {
+        "employeeId": 166552,
+        "department": "pulmonary",
+        "name": "Maria Lin",
+        "status": "ON",
+        "hospital": {
+            "hospId": 3,
+            "hospName": "Hospital del Mar",
+            "region": "Cataluña",
+            "city": "Barcelona"
+        }
+    },
+    {
+        "employeeId": 172456,
+        "department": "psychiatric",
+        "name": "John Paul Armes",
+        "status": "OFF",
+        "hospital": {
+            "hospId": 4,
+            "hospName": "Hospital Virgen del Rocío",
+            "region": "Andalucía",
+            "city": "Sevilla"
+        }
+    },
+    {
+        "employeeId": 356712,
+        "department": "cardiology",
+        "name": "Alonso Flores",
+        "status": "ON_CALL",
+        "hospital": {
+            "hospId": 4,
+            "hospName": "Hospital Virgen del Rocío",
+            "region": "Andalucía",
+            "city": "Sevilla"
+        }
+    },
+    {
+        "employeeId": 564134,
+        "department": "immunology",
+        "name": "Sam Ortega",
+        "status": "ON",
+        "hospital": {
+            "hospId": 1,
+            "hospName": "Hospital Central",
+            "region": "Madrid",
+            "city": "Madrid"
+        }
+    },
+    {
+        "employeeId": 761527,
+        "department": "cardiology",
+        "name": "German Ruiz",
+        "status": "OFF",
+        "hospital": {
+            "hospId": 2,
+            "hospName": "Hospital Norte",
+            "region": "Cataluña",
+            "city": "Barcelona"
+        }
+    }
+
+Patient
+
+ {
+        "patientId": 6,
+        "patientName": "Jaime Jordan",
+        "patientDateOfBirth": "1984-03-02T00:00:00.000+00:00",
+        "employeeId": {
+            "employeeId": 564134,
+            "department": "immunology",
+            "name": "Sam Ortega",
+            "status": "ON",
+            "hospital": {
+                "hospId": 1,
+                "hospName": "Hospital Central",
+                "region": "Madrid",
+                "city": "Madrid"
+            }
+        }
+    },
+    {
+        "patientId": 7,
+        "patientName": "Marian Garcia",
+        "patientDateOfBirth": "1972-01-12T00:00:00.000+00:00",
+        "employeeId": {
+            "employeeId": 564134,
+            "department": "immunology",
+            "name": "Sam Ortega",
+            "status": "ON",
+            "hospital": {
+                "hospId": 1,
+                "hospName": "Hospital Central",
+                "region": "Madrid",
+                "city": "Madrid"
+            }
+        }
+    },
+    {
+        "patientId": 8,
+        "patientName": "Julia Dusterdieck",
+        "patientDateOfBirth": "1954-06-11T00:00:00.000+00:00",
+        "employeeId": {
+            "employeeId": 356712,
+            "department": "cardiology",
+            "name": "Alonso Flores",
+            "status": "ON_CALL",
+            "hospital": {
+                "hospId": 4,
+                "hospName": "Hospital Virgen del Rocío",
+                "region": "Andalucía",
+                "city": "Sevilla"
+            }
+        }
+    },
+    {
+        "patientId": 12,
+        "patientName": "Steve McDuck",
+        "patientDateOfBirth": "1931-11-10T00:00:00.000+00:00",
+        "employeeId": {
+            "employeeId": 356712,
+            "department": "cardiology",
+            "name": "Alonso Flores",
+            "status": "ON_CALL",
+            "hospital": {
+                "hospId": 4,
+                "hospName": "Hospital Virgen del Rocío",
+                "region": "Andalucía",
+                "city": "Sevilla"
+            }
+        }
+    },
+    {
+        "patientId": 13,
+        "patientName": "Marian Garcia",
+        "patientDateOfBirth": "1999-02-15T00:00:00.000+00:00",
+        "employeeId": {
+            "employeeId": 166552,
+            "department": "pulmonary",
+            "name": "Maria Lin",
+            "status": "ON",
+            "hospital": {
+                "hospId": 3,
+                "hospName": "Hospital del Mar",
+                "region": "Cataluña",
+                "city": "Barcelona"
+            }
+        }
+
