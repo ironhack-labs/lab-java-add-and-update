@@ -66,6 +66,12 @@ Create the following routes as efficiently as possible, using validation where a
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
    - What is the cost-benefit between using `PUT` and `PATCH`?
 
+ - I did use the same type of route for the updates, however on the patch you have to include the specific field on the path after selecting the id 
+			- I chose the selected strategy per restful guidelines 
+			advantages:  easy to access, standardization, disadvantages prone to user error. 
+			cost benefit:  use correct method as patching uses a lot less data when compared to put (relevant on larger applications) 
+
+
 <br>  
 
 ## FAQs
